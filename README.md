@@ -4,7 +4,7 @@
 I wanted to make a simple UI to mimic the program from the Computerphile video on maze solving, just in Java.
 
 ## Maze Requirements
-Can take in black and white mazes where the entrance is at the top and the bottom, the exit.
+Can take in black and white mazes where the path is 1 pixel wide with the entrance being in the top and the bottom, the exit.
 ## How to generate mazes
 - [Daedalus Link](http://www.astrolog.org/labyrnth/daedalus.htm)
   - Is a bit of a learning curve
