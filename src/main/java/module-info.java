@@ -9,4 +9,6 @@ module PixelMazeSolver {
     opens jasmine.jragon to javafx.fxml;
 
     exports jasmine.jragon;
+    exports jasmine.jragon.maze;
+    opens jasmine.jragon.maze to javafx.fxml;
 }

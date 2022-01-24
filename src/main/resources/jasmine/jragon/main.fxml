@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
+          prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="jasmine.jragon.Controller">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="569.1237297500032" minHeight="10.0" prefHeight="366.865972179373" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="446.68041357769573" minHeight="10.0" prefHeight="332.34023903680486"
+                        vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <HBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+        <ImageView fx:id="originalMazeView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true"
+                   preserveRatio="true"/>
+        <ImageView fx:id="solveView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"/>
+    </HBox>
+    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+        <MenuBar>
+            <Menu mnemonicParsing="false" text="File">
+                <MenuItem mnemonicParsing="false" onAction="#loadImage" text="Open"/>
+                <MenuItem mnemonicParsing="false" onAction="#saveImage" text="Save"/>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+                <MenuItem mnemonicParsing="false" onAction="#displayHelp" text="About"/>
+            </Menu>
+        </MenuBar>
+        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="4000.0"
+                  prefWidth="100.0" VBox.vgrow="SOMETIMES">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+        </GridPane>
+    </VBox>
+</GridPane>

@@ -9,6 +9,11 @@ plugins {
 group 'jasmine.jragon'
 version '1.0'
 
+application {
+    mainModule = 'PixelMazeSolver'
+    mainClassName = 'jasmine.jragon.Main'
+}
+
 repositories {
     mavenCentral()
 }
