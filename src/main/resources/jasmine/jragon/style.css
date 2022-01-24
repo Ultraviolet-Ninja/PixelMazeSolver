@@ -1,0 +1,17 @@
+.mfx-button {
+    -fx-font-size: 25;
+    -mfx-button-type: RAISED;
+}
+
+.mfx-button:pressed {
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+}
+
+.mfx-label {
+    -fx-font-size: 25;
+}
+
+.color-picker {
+
+}

@@ -1,50 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
-          prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="jasmine.jragon.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jasmine.jragon.Controller">
     <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints maxHeight="569.1237297500032" minHeight="10.0" prefHeight="366.865972179373" vgrow="SOMETIMES"/>
-        <RowConstraints maxHeight="446.68041357769573" minHeight="10.0" prefHeight="332.34023903680486"
-                        vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="569.1237297500032" minHeight="10.0" prefHeight="366.865972179373" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="446.68041357769573" minHeight="10.0" prefHeight="332.34023903680486" vgrow="SOMETIMES" />
     </rowConstraints>
     <HBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
-        <ImageView fx:id="originalMazeView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true"
-                   preserveRatio="true"/>
-        <ImageView fx:id="solveView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"/>
+        <ImageView fx:id="originalMazeView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="solveView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
     </HBox>
     <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
         <MenuBar>
             <Menu mnemonicParsing="false" text="File">
-                <MenuItem mnemonicParsing="false" onAction="#loadImage" text="Open    Ctrl-O"/>
-                <MenuItem mnemonicParsing="false" onAction="#saveImage" text="Save      Ctrl-S"/>
+                <MenuItem mnemonicParsing="false" onAction="#loadImage" text="Open    Ctrl-O" />
+                <MenuItem mnemonicParsing="false" onAction="#saveImage" text="Save      Ctrl-S" />
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
-                <MenuItem mnemonicParsing="false" onAction="#displayHelp" text="About    Ctrl-H"/>
+                <MenuItem mnemonicParsing="false" onAction="#displayHelp" text="About    Ctrl-H" />
             </Menu>
         </MenuBar>
-        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="4000.0"
-                  prefWidth="100.0" VBox.vgrow="SOMETIMES">
+        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="4000.0" prefWidth="100.0" VBox.vgrow="SOMETIMES">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
+            <children>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="258.2886472205983" minHeight="10.0" prefHeight="150.28866247938737" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="223.01032060486767" minHeight="1.0103320489594694" prefHeight="109.0103167901704" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="214.68041357769576" minHeight="10.0" prefHeight="82.76291030265946" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                            <children>
+                                <MFXLabel lineStrokeWidth="0.0" text="Finishing Color" />
+                                <ColorPicker>
+                                    <value>
+                                        <Color blue="1.0" />
+                                    </value>
+                                </ColorPicker>
+                            </children>
+                        </HBox>
+                        <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <MFXLabel lineStrokeWidth="0.0" text="Starting Color" />
+                                <ColorPicker>
+                                    <value>
+                                        <Color red="1.0" />
+                                    </value>
+                                </ColorPicker>
+                            </children>
+                        </HBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+                            <MFXButton fx:id="submitButton" disable="true" onAction="#solveMaze" text="Solve Maze" />
+                        </VBox>
+                    </children>
+                </GridPane>
+            </children>
         </GridPane>
     </VBox>
 </GridPane>
