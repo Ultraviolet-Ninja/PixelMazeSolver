@@ -18,9 +18,6 @@ I wanted to make a simple UI to mimic the program from the Computerphile video o
      - Might have to edit mazes to encase them in a black border
 
 2. [Website Link](https://keesiemeijer.github.io/maze-generator/#generate)
-
      - Limited to 200 x 200 size mazes
-
      - Set Wall thickness to 1
-
      - Set Maze entries to top and bottom
