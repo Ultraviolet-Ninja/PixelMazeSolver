@@ -8,18 +8,16 @@ public class Controller {
     private ImageView originalMazeView, solveView;
 
     @FXML
-    private void loadImage() {
+    void loadImage() {
+    }
+
+    @FXML
+    void saveImage() {
 
     }
 
     @FXML
-    private void saveImage() {
-
-    }
-
-    @FXML
-    private void displayHelp() {
-
+    void displayHelp() {
     }
 
     @FXML
