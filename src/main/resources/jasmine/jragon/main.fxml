@@ -29,11 +29,11 @@
     <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
         <MenuBar>
             <Menu mnemonicParsing="false" text="File">
-                <MenuItem mnemonicParsing="false" onAction="#loadImage" text="Open"/>
-                <MenuItem mnemonicParsing="false" onAction="#saveImage" text="Save"/>
+                <MenuItem mnemonicParsing="false" onAction="#loadImage" text="Open    Ctrl-O"/>
+                <MenuItem mnemonicParsing="false" onAction="#saveImage" text="Save      Ctrl-S"/>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
-                <MenuItem mnemonicParsing="false" onAction="#displayHelp" text="About"/>
+                <MenuItem mnemonicParsing="false" onAction="#displayHelp" text="About    Ctrl-H"/>
             </Menu>
         </MenuBar>
         <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="4000.0"
