@@ -1,42 +1,65 @@
 package jasmine.jragon.maze;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
-import org.javatuples.Pair;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public record ImageBuilder(List<Coordinates> path, Image image,
                            Color startColor, Color endColor) {
     public Image build() {
-        List<Pair<Coordinates, Color>> colorPath = determineColorPath();
-
-        return null;
+        Map<Coordinates, Color> colorMap = determineColorPath();
+        return createImage(colorMap);
     }
 
-    private List<Pair<Coordinates, Color>> determineColorPath() {
+    private Map<Coordinates, Color> determineColorPath() {
         int size = path.size();
         double deltaRed = startColor.getRed() - endColor.getRed(),
                 deltaGreen = startColor.getGreen() - endColor.getGreen(),
                 deltaBlue = startColor.getBlue() - endColor.getBlue();
 
-        double decrementRed = deltaRed / size,
-                decrementGreen = deltaGreen / size,
-                decrementBlue = deltaBlue / size;
+        double incrementRed = deltaRed / size,
+                incrementGreen = deltaGreen / size,
+                incrementBlue = deltaBlue / size;
 
-        double redCounter = startColor.getRed(),
-                greenCounter = startColor.getGreen(),
-                blueCounter = startColor.getBlue();
+        double redCounter = endColor.getRed(),
+                greenCounter = endColor.getGreen(),
+                blueCounter = endColor.getBlue();
 
-        List<Pair<Coordinates, Color>> colorPath = new ArrayList<>();
+        Map<Coordinates, Color> colorMap = new TreeMap<>();
         for (Coordinates coordinates : path) {
-            colorPath.add(new Pair<>(coordinates, new Color(redCounter, greenCounter, blueCounter, 1.0)));
-            redCounter -= decrementRed;
-            greenCounter -= decrementGreen;
-            blueCounter -= decrementBlue;
+            colorMap.put(coordinates, new Color(redCounter, greenCounter, blueCounter, 1.0));
+            redCounter += incrementRed;
+            greenCounter += incrementGreen;
+            blueCounter += incrementBlue;
         }
 
-        return colorPath;
+        return colorMap;
+    }
+
+    private Image createImage(Map<Coordinates, Color> colorMap) {
+        final int width = (int) image.getWidth();
+        final int height = (int) image.getHeight();
+
+        WritableImage newImage = new WritableImage(width, height);
+        PixelWriter newImageWriter = newImage.getPixelWriter();
+        PixelReader reader = image.getPixelReader();
+
+        Coordinates currentPoint;
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                currentPoint = new Coordinates(x, y);
+                newImageWriter.setColor(x, y,
+                        colorMap.getOrDefault(currentPoint, reader.getColor(x, y))
+                );
+            }
+        }
+
+        return newImage;
     }
 }

@@ -25,7 +25,7 @@ public class MazeSolver {
 
         long stop = System.nanoTime();
         System.out.printf("%,d%n", stop - start);
-        return null;
+        return builder.build();
     }
 
     private static List<Coordinates> findPath(Triplet<Graph<Coordinates, DefaultEdge>, Coordinates, Coordinates> triplet,

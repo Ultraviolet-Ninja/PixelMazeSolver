@@ -30,6 +30,10 @@ public class Controller {
     @FXML
     private ImageView originalMazeView, solveView;
 
+    public void initialize() {
+
+    }
+
     @FXML
     void loadImage() {
         FileChooser chooser = new FileChooser();
@@ -75,7 +79,8 @@ public class Controller {
             alert.setContentText("Please a select an image of black and white maze");
             return;
         }
-        MazeSolver.solveMaze(image, DIJKSTRA, start.getValue(), finish.getValue());
-
+        Image solvedImage = MazeSolver.solveMaze(image, DIJKSTRA, start.getValue(), finish.getValue());
+        solveView.setImage(solvedImage);
+        save.setDisable(false);
     }
 }
