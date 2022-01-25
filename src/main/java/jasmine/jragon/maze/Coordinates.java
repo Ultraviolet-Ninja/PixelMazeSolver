@@ -31,4 +31,12 @@ public record Coordinates(int x, int y) implements Comparable<Coordinates> {
 
         return Integer.compare(y, o.y);
     }
+
+    public double distanceToPoint(int x, int y) {
+        return Math.abs(Math.pow(x - this.x, 2) + Math.pow(y - this.y, 2));
+    }
+
+    public double distanceToPoint(Coordinates other) {
+        return distanceToPoint(other.x, other.y);
+    }
 }
