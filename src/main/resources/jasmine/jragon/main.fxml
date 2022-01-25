@@ -22,7 +22,7 @@
         <MenuBar>
             <Menu mnemonicParsing="false" text="File">
                 <MenuItem mnemonicParsing="false" onAction="#loadImage" text="Open    Ctrl-O" />
-                <MenuItem mnemonicParsing="false" onAction="#saveImage" text="Save      Ctrl-S" />
+                <MenuItem fx:id="save" disable="true" mnemonicParsing="false" onAction="#saveImage" text="Save      Ctrl-S" />
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
                 <MenuItem mnemonicParsing="false" onAction="#displayHelp" text="About    Ctrl-H" />
@@ -50,7 +50,7 @@
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                             <children>
                                 <MFXLabel lineStrokeWidth="0.0" text="Finishing Color" />
-                                <ColorPicker>
+                                <ColorPicker fx:id="finish">
                                     <value>
                                         <Color blue="1.0" />
                                     </value>
@@ -60,7 +60,7 @@
                         <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
                             <children>
                                 <MFXLabel lineStrokeWidth="0.0" text="Starting Color" />
-                                <ColorPicker>
+                                <ColorPicker fx:id="start">
                                     <value>
                                         <Color red="1.0" />
                                     </value>

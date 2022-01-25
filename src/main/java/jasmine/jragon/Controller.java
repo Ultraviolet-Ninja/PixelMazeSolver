@@ -1,9 +1,11 @@
 package jasmine.jragon;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
+import jasmine.jragon.maze.MazeSolver;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.DirectoryChooser;
@@ -12,9 +14,15 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
+import static jasmine.jragon.maze.Algorithm.A_STAR;
+import static jasmine.jragon.maze.Algorithm.DIJKSTRA;
+
 public class Controller {
     @FXML
     private ColorPicker start, finish;
+
+    @FXML
+    private MenuItem save;
 
     @FXML
     private MFXButton submitButton;
@@ -39,6 +47,7 @@ public class Controller {
 
     @FXML
     void saveImage() {
+        if (save.isDisable()) return;
         if (solveView.getImage() == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Save Error");
@@ -62,10 +71,11 @@ public class Controller {
         if (image == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Solve Error");
-            alert.setHeaderText("");
-            alert.setContentText("");
+            alert.setHeaderText("The maze wasn't set");
+            alert.setContentText("Please a select an image of black and white maze");
             return;
         }
+        MazeSolver.solveMaze(image, DIJKSTRA, start.getValue(), finish.getValue());
 
     }
 }
